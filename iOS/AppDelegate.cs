@@ -19,7 +19,9 @@ namespace MyCalisthenics.iOS
 			Xamarin.Calabash.Start();
 #endif
 
-			LoadApplication(new App());
+			string dbpath = LocalFilePathHelper.GetFolderPath();
+
+			LoadApplication(new App(dbpath));
 
 			return base.FinishedLaunching(app, options);
 		}

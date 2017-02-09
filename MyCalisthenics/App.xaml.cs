@@ -1,12 +1,17 @@
 ﻿using Xamarin.Forms;
+using SQLite;
 
 namespace MyCalisthenics
 {
 	public partial class App : Application
 	{
-		public App()
+		public static WorkoutDatabase WorkoutDB { get; set;}
+
+		public App(string dbpath)
 		{
 			InitializeComponent();
+
+			WorkoutDB = new WorkoutDatabase(dbpath);
 
 			MainPage = new MyCalisthenicsPage();
 		}

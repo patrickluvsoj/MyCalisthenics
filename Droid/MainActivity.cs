@@ -22,7 +22,9 @@ namespace MyCalisthenics.Droid
 
 			global::Xamarin.Forms.Forms.Init(this, bundle);
 
-			LoadApplication(new App());
+			string dbpath = LocalFilePathHelper.GetLocalFilePath();
+
+			LoadApplication(new App(dbpath));
 		}
 	}
 }
