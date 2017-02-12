@@ -12,14 +12,14 @@
 		<Label Text="Pull-up reps" HorizontalOptions="StartAndExpand" VerticalOptions="Center"/>
 		<Entry Placeholder="ex.) 6" Text="{Binding Pulluprep, Mode=TwoWay}"/>
 		<Label Text="Push-up reps" VerticalOptions="Center" HorizontalOptions="StartAndExpand"/>
-		<Entry Placeholder="ex.) 6"/>
+		<Entry Placeholder="ex.) 6" Text="{Binding Pushuprep, Mode=TwoWay}"/>
 		<Label Text="Chin-up reps" VerticalOptions="Center" HorizontalOptions="StartAndExpand"/>
-		<Entry Placeholder="ex.) 6"/>
+		<Entry Placeholder="ex.) 6" Text="{Binding Chinuprep, Mode=TwoWay}"/>
 		<Label Text="Deadlift" VerticalOptions="Center" HorizontalOptions="StartAndExpand"/>
-		<Entry Placeholder="ex.) 6"/>
+		<Entry Placeholder="ex.) 6" Text="{Binding Deadliftrep, Mode=TwoWay}"/>
 
 		<Button Text="Done" Clicked="OnDoneClicked"/>
-		<Entry Placeholder="Result" Text="{Binding Pulluprep, Mode=TwoWay}"/>
+		
 	</StackLayout>
 	
 </ContentPage>

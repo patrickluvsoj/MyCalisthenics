@@ -27,9 +27,13 @@ namespace MyCalisthenics
 		void OnDoneClicked(object sender, EventArgs e)
 		{
 			string pullup = workout.Pulluprep;
+			string chinup = workout.Chinuprep;
+			string pushup = workout.Pushuprep;
+			string deadlift = workout.Deadliftrep;
+			string workoutresult = pullup + ", " + chinup + ", " + pushup + ", " + deadlift;
 
 			//call method to insert workout model to SQLite database by way of binding context
-			this.DisplayAlert("Finished Workout Result", pullup, "OK");
+			this.DisplayAlert("Finished Workout Result", workoutresult, "OK");
 		}
 	}
 }
