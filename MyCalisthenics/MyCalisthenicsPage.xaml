@@ -1,14 +1,25 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:local="clr-namespace:MyCalisthenics" x:Class="MyCalisthenics.MyCalisthenicsPage" Title="MyCalisthenics" >
+
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
+		xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+		xmlns:local="clr-namespace:MyCalisthenics;assembly=MyCalisthenics" 
+		x:Class="MyCalisthenics.MyCalisthenicsPage" 
+		Title="MyCalisthenics" >
+	
 	<StackLayout VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" Margin="30" Spacing="10">
 		<Label Text="Workout" FontSize="Large" VerticalOptions="Center" HorizontalOptions="Center" />
+
 		<Label Text="Pull-up reps" HorizontalOptions="StartAndExpand" VerticalOptions="Center"/>
-		<Entry Placeholder="ex.) 6"/>
+		<Entry Placeholder="ex.) 6" Text="{Binding Pulluprep, Mode=TwoWay}"/>
 		<Label Text="Push-up reps" VerticalOptions="Center" HorizontalOptions="StartAndExpand"/>
 		<Entry Placeholder="ex.) 6"/>
 		<Label Text="Chin-up reps" VerticalOptions="Center" HorizontalOptions="StartAndExpand"/>
 		<Entry Placeholder="ex.) 6"/>
 		<Label Text="Deadlift" VerticalOptions="Center" HorizontalOptions="StartAndExpand"/>
 		<Entry Placeholder="ex.) 6"/>
+
+		<Button Text="Done" Clicked="OnDoneClicked"/>
+		<Entry Placeholder="Result" Text="{Binding Pulluprep, Mode=TwoWay}"/>
 	</StackLayout>
+	
 </ContentPage>

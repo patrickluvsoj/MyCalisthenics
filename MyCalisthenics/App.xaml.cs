@@ -1,8 +1,10 @@
 ﻿using Xamarin.Forms;
 using SQLite;
+using Xamarin.Forms.Xaml;
 
 namespace MyCalisthenics
 {
+	[XamlCompilation(XamlCompilationOptions.Compile)]
 	public partial class App : Application
 	{
 		public static WorkoutDatabase WorkoutDB { get; set;}
@@ -13,7 +15,7 @@ namespace MyCalisthenics
 
 			WorkoutDB = new WorkoutDatabase(dbpath);
 
-			MainPage = new MyCalisthenicsPage();
+			MainPage = new MyCalisthenicsPage(WorkoutDB);
 		}
 
 		protected override void OnStart()

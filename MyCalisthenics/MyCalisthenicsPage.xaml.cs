@@ -1,12 +1,35 @@
-﻿using Xamarin.Forms;
+﻿using System;
+using Xamarin.Forms;
+using Xamarin.Forms.Xaml;
 
 namespace MyCalisthenics
 {
+	[XamlCompilation(XamlCompilationOptions.Compile)]
 	public partial class MyCalisthenicsPage : ContentPage
 	{
-		public MyCalisthenicsPage()
+		readonly WorkoutDatabase workoutdb;
+		readonly Workout workout;
+
+		public MyCalisthenicsPage(WorkoutDatabase workoutdb)
 		{
+ 			this.workout = WorkoutGenerator.GetWorkout();
+
+			//assign SQLite connect to this object's property
+			this.workoutdb = workoutdb;
+
+			//set the Binding context to instance of workout model
+			this.BindingContext = workout;
+
 			InitializeComponent();
+
+		}
+
+		void OnDoneClicked(object sender, EventArgs e)
+		{
+			string pullup = workout.Pulluprep;
+
+			//call method to insert workout model to SQLite database by way of binding context
+			this.DisplayAlert("Finished Workout Result", pullup, "OK");
 		}
 	}
 }
