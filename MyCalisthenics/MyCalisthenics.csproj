@@ -30,6 +30,9 @@
   <ItemGroup>
     <EmbeddedResource Include="App.xaml" />
     <EmbeddedResource Include="MyCalisthenicsPage.xaml" />
+    <EmbeddedResource Include="MyCalisthenicsList.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App.xaml.cs">
@@ -42,6 +45,9 @@
     <Compile Include="Models\Workout.cs" />
     <Compile Include="WorkoutDatabase.cs" />
     <Compile Include="WorkoutGenerator.cs" />
+    <Compile Include="MyCalisthenicsList.xaml.cs">
+      <DependentUpon>MyCalisthenicsList.xaml</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Xamarin.Forms.Core">

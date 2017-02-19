@@ -4,10 +4,9 @@
 		xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
 		xmlns:local="clr-namespace:MyCalisthenics;assembly=MyCalisthenics" 
 		x:Class="MyCalisthenics.MyCalisthenicsPage" 
-		Title="MyCalisthenics" >
+		Title="New Workout" >
 	
 	<StackLayout VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" Margin="30" Spacing="10">
-		<Label Text="Workout" FontSize="Large" VerticalOptions="Center" HorizontalOptions="Center" />
 
 		<Label Text="Pull-up reps" HorizontalOptions="StartAndExpand" VerticalOptions="Center"/>
 		<Entry Placeholder="ex.) 6" Text="{Binding Pulluprep, Mode=TwoWay}"/>

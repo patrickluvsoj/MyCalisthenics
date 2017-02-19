@@ -15,7 +15,7 @@ namespace MyCalisthenics
 
 			WorkoutDB = new WorkoutDatabase(dbpath);
 
-			MainPage = new MyCalisthenicsPage(WorkoutDB);
+			MainPage = new NavigationPage(new MyCalisthenicsList());
 		}
 
 		protected override void OnStart()

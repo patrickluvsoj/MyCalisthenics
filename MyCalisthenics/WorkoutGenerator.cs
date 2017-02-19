@@ -1,17 +1,44 @@
 ﻿using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
 
 namespace MyCalisthenics
 {
 	public static class WorkoutGenerator
 	{
-		public static Workout GetWorkout()
+		public static IList<Workout> workoutCollection { get; set;}
+
+		static WorkoutGenerator()
 		{
-			return new Workout
+			workoutCollection = new ObservableCollection<Workout>
 			{
-				Pulluprep = "0",
-				Pushuprep = "0",
-				Deadliftrep = "0",
-				Chinuprep = "0"
+				new Workout
+				{
+					Id = 0,
+					Pulluprep = "I did it 6 times",
+					Pushuprep = "0",
+					Deadliftrep = "0",
+					Chinuprep = "0",
+				},
+
+				new Workout
+				{
+					Id = 1,
+					Pulluprep = "I did it 8 times",
+					Pushuprep = "1",
+					Deadliftrep = "1",
+					Chinuprep = "1",
+				},
+
+					new Workout
+				{
+					Id = 2,
+					Pulluprep = " I did it 10 times!",
+					Pushuprep = "2",
+					Deadliftrep = "2",
+					Chinuprep = "2",
+				}
 			};
 		}
 	}
