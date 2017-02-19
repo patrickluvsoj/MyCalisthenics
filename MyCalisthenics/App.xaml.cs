@@ -2,6 +2,11 @@
 using SQLite;
 using Xamarin.Forms.Xaml;
 
+//Mobile Center Depedencies
+using Microsoft.Azure.Mobile;
+using Microsoft.Azure.Mobile.Analytics;
+using Microsoft.Azure.Mobile.Crashes;
+
 namespace MyCalisthenics
 {
 	[XamlCompilation(XamlCompilationOptions.Compile)]
@@ -20,6 +25,7 @@ namespace MyCalisthenics
 
 		protected override void OnStart()
 		{
+			MobileCenter.Start(typeof(Analytics), typeof(Crashes));
 			// Handle when your app starts
 		}
 
