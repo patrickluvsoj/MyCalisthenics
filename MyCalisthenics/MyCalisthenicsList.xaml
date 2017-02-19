@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
+		xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+		xmlns:local="clr-namespace:MyCalisthenics;assembly=MyCalisthenics"
+		Title="Home"
+		x:Class="MyCalisthenics.MyCalisthenicsList"
+		BindingContext="{x:Static local:WorkoutGenerator.workoutCollection}"
+		Padding="5,0,5,5">
+
+<!--TODO Ensure Toolbar is visible	-->
+	<ContentPage.ToolbarItems>
+		<ToolbarItem Text="New" Clicked="OnNewWorkout"/>
+	</ContentPage.ToolbarItems>
+
+	<ListView x:Name="workoutList" ItemsSource="{Binding .}">
+		<ListView.ItemTemplate>
+			<DataTemplate>
+				<TextCell Text="{Binding Pulluprep}" Detail="{Binding Deadliftrep}"/>
+			</DataTemplate>
+		</ListView.ItemTemplate>
+	</ListView>
+	
+</ContentPage>
