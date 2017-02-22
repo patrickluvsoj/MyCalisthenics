@@ -16,6 +16,8 @@ namespace MyCalisthenics
 				new Workout
 				{
 					Id = 0,
+					Icon = "check.png",
+					Workoutdate = DateTime.Today,
 					Pulluprep = "I did it 6 times",
 					Pushuprep = "0",
 					Deadliftrep = "0",
@@ -25,15 +27,19 @@ namespace MyCalisthenics
 				new Workout
 				{
 					Id = 1,
+					Icon = "check.png",
+					Workoutdate = DateTime.Today,
 					Pulluprep = "I did it 8 times",
 					Pushuprep = "1",
 					Deadliftrep = "1",
 					Chinuprep = "1",
 				},
 
-					new Workout
+				new Workout
 				{
 					Id = 2,
+					Icon = "check.png",
+					Workoutdate = DateTime.Today,
 					Pulluprep = " I did it 10 times!",
 					Pushuprep = "2",
 					Deadliftrep = "2",

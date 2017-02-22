@@ -7,15 +7,26 @@
 		BindingContext="{x:Static local:WorkoutGenerator.workoutCollection}"
 		Padding="5,0,5,5">
 
-<!--TODO Ensure Toolbar is visible	-->
+	 <ContentPage.Resources>
+      <ResourceDictionary>
+        <local:ImageConverter x:Key="imageCvt" />
+      </ResourceDictionary>
+    </ContentPage.Resources>
+
 	<ContentPage.ToolbarItems>
 		<ToolbarItem Text="New" Clicked="OnNewWorkout"/>
 	</ContentPage.ToolbarItems>
 
-	<ListView x:Name="workoutList" ItemsSource="{Binding .}">
+	<ListView x:Name="workoutList" ItemsSource="{Binding .}" ItemTapped="OnTapped">
 		<ListView.ItemTemplate>
 			<DataTemplate>
-				<TextCell Text="{Binding Pulluprep}" Detail="{Binding Deadliftrep}"/>
+				<ImageCell ImageSource="{Binding Icon, Converter={StaticResource imageCvt}}" 
+					Text="{Binding Workoutdate}" 
+					Detail="{Binding Deadliftrep}">
+					<ImageCell.ContextActions>
+						<MenuItem Text="Delete" IsDestructive="true" Clicked="OnDelete"/>
+					</ImageCell.ContextActions>
+				</ImageCell>
 			</DataTemplate>
 		</ListView.ItemTemplate>
 	</ListView>

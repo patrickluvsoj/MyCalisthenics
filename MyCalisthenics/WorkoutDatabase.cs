@@ -16,7 +16,9 @@ namespace MyCalisthenics
 		}
 
 		//TODO
-		////Write a method to add workouts to database
+		////#1 Write a method to add workouts to database
+		/// #2 Write a method to get all workout items
+		/// #3 Write a method to get specific workout item
 		//public void InsertWorkout(string pullup)
 		//{
 		//	try

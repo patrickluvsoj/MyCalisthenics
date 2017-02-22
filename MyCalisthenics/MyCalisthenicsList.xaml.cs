@@ -8,27 +8,52 @@ namespace MyCalisthenics
 {
 	public partial class MyCalisthenicsList : ContentPage
 	{
-		//private IList<Workout> workouts { get; set; }
+		public static IList<Workout> workouts {get; set;}
 
 		public MyCalisthenicsList()
 		{
-			BindingContext = WorkoutGenerator.workoutCollection;
+			workouts = WorkoutGenerator.workoutCollection;
+			BindingContext = workouts;
 			InitializeComponent();
-			//workouts = WorkoutGenerator.workoutCollection;
-
 		}
 
-		//TODO: Wire-up workout detail page from Toolbar
 		public void OnNewWorkout(object sender, EventArgs e)
 		{
-			Navigation.PushAsync(new MyCalisthenicsPage());
+			var workout = new Workout();
+			workout.Workoutdate = DateTime.Today;
+			workout.Icon = "check.png";
+
+			Navigation.PushAsync(new MyCalisthenicsPage(workout));
 		}
 
-		//TODO: Ensure workouts are saved
-		//TODO: Ensure that when workouts are changed or deleted in SQL, UI is updated
 		//TODO: Add OnDelete method
+		public void OnDelete(object sender, EventArgs e)
+		{
+			var menuitem = (MenuItem)sender;
+			var workout = (Workout)menuitem.BindingContext;
+			workouts.Remove(workout);
+
+		}
+
 		//TODO: Add OnTapped method
-		//TODO: Add Data time as titile of ListView & an image
+		public void OnTapped(object sender, ItemTappedEventArgs e)
+		{
+			if (e.Item == null)
+			{
+				return;
+			}
+
+			var workout = (Workout)e.Item;
+			Navigation.PushAsync(new MyCalisthenicsPage(workout));
+		}
+
+		//public override void OnAppearing()
+		//{
+		//}
+
+		//TODO: Add support for image in listview
+		//TODO: Ensure workouts are saved in SQLdatabase
+		//TODO: Ensure that when workouts are changed or deleted in SQL, UI is updated
 	}
 	
 }

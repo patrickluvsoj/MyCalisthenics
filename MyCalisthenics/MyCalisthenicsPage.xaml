@@ -8,6 +8,8 @@
 	
 	<StackLayout VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" Margin="30" Spacing="10">
 
+		<Label Text="Workout Date" FontSize="Large"/>
+		<Entry Text="{Binding Workoutdate, Mode=TwoWay}"/>
 		<Label Text="Pull-up reps" HorizontalOptions="StartAndExpand" VerticalOptions="Center"/>
 		<Entry Placeholder="ex.) 6" Text="{Binding Pulluprep, Mode=TwoWay}"/>
 		<Label Text="Push-up reps" VerticalOptions="Center" HorizontalOptions="StartAndExpand"/>
