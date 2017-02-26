@@ -3,6 +3,7 @@ using System.Collections.Generic;
 
 using Xamarin.Forms;
 using System.Collections.ObjectModel;
+using System.Threading.Tasks;
 
 namespace MyCalisthenics
 {
@@ -12,8 +13,6 @@ namespace MyCalisthenics
 
 		public MyCalisthenicsList()
 		{
-			workouts = WorkoutGenerator.workoutCollection;
-			BindingContext = workouts;
 			InitializeComponent();
 		}
 
@@ -26,16 +25,17 @@ namespace MyCalisthenics
 			Navigation.PushAsync(new MyCalisthenicsPage(workout));
 		}
 
-		//TODO: Add OnDelete method
-		public void OnDelete(object sender, EventArgs e)
+		async void OnDelete(object sender, EventArgs e)
 		{
 			var menuitem = (MenuItem)sender;
 			var workout = (Workout)menuitem.BindingContext;
-			workouts.Remove(workout);
+			//workouts.Remove(workout);
+			await App.WorkoutDB.DeleteWorkoutAsync(workout);
+			OnAppearing();
+			//BindingContext = await App.WorkoutDB.GetallWorkoutsAsync();
 
 		}
 
-		//TODO: Add OnTapped method
 		public void OnTapped(object sender, ItemTappedEventArgs e)
 		{
 			if (e.Item == null)
@@ -47,13 +47,10 @@ namespace MyCalisthenics
 			Navigation.PushAsync(new MyCalisthenicsPage(workout));
 		}
 
-		//public override void OnAppearing()
-		//{
-		//}
-
-		//TODO: Add support for image in listview
-		//TODO: Ensure workouts are saved in SQLdatabase
-		//TODO: Ensure that when workouts are changed or deleted in SQL, UI is updated
+		protected async override void OnAppearing()
+		{
+			BindingContext =  await App.WorkoutDB.GetallWorkoutsAsync();
+		}
 	}
 	
 }
