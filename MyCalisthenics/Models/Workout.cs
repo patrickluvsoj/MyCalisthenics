@@ -12,20 +12,8 @@ namespace MyCalisthenics
 
 		[PrimaryKey, AutoIncrement]
 		public int Id { get; set; }
-
 		public string Icon { get; set; }
-
-		//DateTime workoutdate;
-		public DateTime Workoutdate
-		{
-			get; set;
-			//get{
-			//	return DateTime.Today;
-			//}
-			//set{
-			//	workoutdate = value;
-			//}
-		}
+		public DateTime Workoutdate { get; set; }
 
 		string pulluprep;
 		public string Pulluprep { 

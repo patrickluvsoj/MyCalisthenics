@@ -4,25 +4,25 @@ using System.Collections.Generic;
 using Xamarin.Forms;
 using System.Collections.ObjectModel;
 using System.Threading.Tasks;
+using Xamarin.Forms.Xaml;
 
 namespace MyCalisthenics
 {
+	[XamlCompilation(XamlCompilationOptions.Compile)]
 	public partial class MyCalisthenicsList : ContentPage
 	{
-		public static IList<Workout> workouts {get; set;}
-
 		public MyCalisthenicsList()
 		{
 			InitializeComponent();
 		}
 
-		public void OnNewWorkout(object sender, EventArgs e)
+		async void OnNewWorkout(object sender, EventArgs e)
 		{
-			var workout = new Workout();
-			workout.Workoutdate = DateTime.Today;
-			workout.Icon = "check.png";
+			var workout = new Workout { 
+				Workoutdate = DateTime.Today
+			};
 
-			Navigation.PushAsync(new MyCalisthenicsPage(workout));
+			await Navigation.PushAsync(new MyCalisthenicsPage(workout));
 		}
 
 		async void OnDelete(object sender, EventArgs e)
@@ -33,7 +33,7 @@ namespace MyCalisthenics
 			OnAppearing();
 		}
 
-		public void OnTapped(object sender, ItemTappedEventArgs e)
+		async void OnTapped(object sender, ItemTappedEventArgs e)
 		{
 			if (e.Item == null)
 			{
@@ -41,7 +41,7 @@ namespace MyCalisthenics
 			}
 
 			var workout = (Workout)e.Item;
-			Navigation.PushAsync(new MyCalisthenicsPage(workout));
+			await Navigation.PushAsync(new MyCalisthenicsPage(workout));
 		}
 
 		protected async override void OnAppearing()

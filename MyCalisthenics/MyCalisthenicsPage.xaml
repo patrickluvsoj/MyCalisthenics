@@ -4,18 +4,12 @@
 		xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
 		xmlns:local="clr-namespace:MyCalisthenics;assembly=MyCalisthenics" 
 		x:Class="MyCalisthenics.MyCalisthenicsPage" 
-		Title="New Workout" >
-
-	<ContentPage.Resources>
-      <ResourceDictionary>
-        <local:DateFormatConverter x:Key="dateCvrt" />
-      </ResourceDictionary>
-    </ContentPage.Resources>
+		Title="New" >
 	
 	<StackLayout VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" Margin="30" Spacing="10">
 
 		<Label Text="Workout Date" FontSize="Large"/>
-		<DatePicker Date="{Binding Workoutdate, Mode=TwoWay, Converter={StaticResource dateCvrt}}"/>
+		<DatePicker Date="{Binding Workoutdate}"/>
 		<Label Text="Pull-up reps" HorizontalOptions="StartAndExpand"/>
 		<Entry Placeholder="ex.) 6" Text="{Binding Pulluprep, Mode=TwoWay}"/>
 		<Label Text="Push-up reps" HorizontalOptions="StartAndExpand"/>

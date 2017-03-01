@@ -33,6 +33,7 @@
     <EmbeddedResource Include="MyCalisthenicsList.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
+    <EmbeddedResource Include="Images\workout.png" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App.xaml.cs">
@@ -44,12 +45,12 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Models\Workout.cs" />
     <Compile Include="WorkoutDatabase.cs" />
-    <Compile Include="WorkoutGenerator.cs" />
     <Compile Include="MyCalisthenicsList.xaml.cs">
       <DependentUpon>MyCalisthenicsList.xaml</DependentUpon>
     </Compile>
     <Compile Include="Converter\ImageConveter.cs" />
     <Compile Include="Converter\DateFormatConverter.cs" />
+    <Compile Include="WorkoutGenerator.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Xamarin.Forms.Core">
@@ -85,7 +86,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
-    <None Include="Images\workout.png" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Models\" />
