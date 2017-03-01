@@ -49,6 +49,7 @@
       <DependentUpon>MyCalisthenicsList.xaml</DependentUpon>
     </Compile>
     <Compile Include="Converter\ImageConveter.cs" />
+    <Compile Include="Converter\DateFormatConverter.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Xamarin.Forms.Core">

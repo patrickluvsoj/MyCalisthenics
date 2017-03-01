@@ -29,11 +29,8 @@ namespace MyCalisthenics
 		{
 			var menuitem = (MenuItem)sender;
 			var workout = (Workout)menuitem.BindingContext;
-			//workouts.Remove(workout);
 			await App.WorkoutDB.DeleteWorkoutAsync(workout);
 			OnAppearing();
-			//BindingContext = await App.WorkoutDB.GetallWorkoutsAsync();
-
 		}
 
 		public void OnTapped(object sender, ItemTappedEventArgs e)

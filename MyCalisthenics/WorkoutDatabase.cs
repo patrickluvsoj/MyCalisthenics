@@ -35,9 +35,7 @@ namespace MyCalisthenics
 			return await database.DeleteAsync(workout);
 		}
 
-		//TODO: Make sure item is deleted correctly in SQLdatabase
-		//TODO: Make sure items can be modified correctly
-		//TODO: Make sure ListView items render nicely
+		//TODO: Make sure when date is update in workout detail page, it update ListView
 		//TODO: Make sure image renders in ListviewItems
 
 

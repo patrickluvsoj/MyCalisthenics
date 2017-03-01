@@ -15,15 +15,16 @@ namespace MyCalisthenics
 
 		public string Icon { get; set; }
 
-		DateTime workoutdate;
+		//DateTime workoutdate;
 		public DateTime Workoutdate
 		{
-			get{
-				return DateTime.Today;
-			}
-			set{
-				workoutdate = value;
-			}
+			get; set;
+			//get{
+			//	return DateTime.Today;
+			//}
+			//set{
+			//	workoutdate = value;
+			//}
 		}
 
 		string pulluprep;

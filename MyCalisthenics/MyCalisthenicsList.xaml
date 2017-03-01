@@ -10,6 +10,7 @@
 	 <ContentPage.Resources>
       <ResourceDictionary>
         <local:ImageConverter x:Key="imageCvt" />
+		<local:DateFormatConverter x:Key="dateCvrt" />
       </ResourceDictionary>
     </ContentPage.Resources>
 
@@ -21,7 +22,7 @@
 		<ListView.ItemTemplate>
 			<DataTemplate>
 				<ImageCell ImageSource="{Binding Icon, Converter={StaticResource imageCvt}}" 
-					Text="{Binding Workoutdate}" 
+					Text="{Binding Workoutdate, Converter={StaticResource dateCvrt}}" 
 					Detail="{Binding Pulluprep}">
 					<ImageCell.ContextActions>
 						<MenuItem Text="Delete" IsDestructive="true" Clicked="OnDelete"/>
