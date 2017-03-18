@@ -1,39 +1,40 @@
 ﻿using System;
 using SQLite;
+using System.Threading.Tasks;
+using System.Collections.Generic;
+using System.Diagnostics;
 
 namespace MyCalisthenics
 {
 	public class WorkoutDatabase
 	{
-		private readonly SQLiteConnection conn;
-
-		//public string StatusMessage { get; set; }
+		readonly SQLiteAsyncConnection database;
 
 		public WorkoutDatabase(string dbpath)
 		{
-			conn = new SQLiteConnection(dbpath);
-			conn.CreateTable<Workout>();
+			database = new SQLiteAsyncConnection(dbpath);
+			database.CreateTableAsync<Workout>();
 		}
 
-		//TODO
-		////Write a method to add workouts to database
-		//public void InsertWorkout(string pullup)
-		//{
-		//	try
-		//	{
-		//		if(string.IsNullOrEmpty(pullup))
-		//		{
-		//			throw new Exception("Valid name required");
-		//		}
-		//	}
-		//	catch (Exception ex)
-		//	{
-		//		StatusMessage = string.Format("Failed to add {0}. Error: {1}", pullup, ex.Message);
-		//	}
+		public async Task<List<Workout>> GetallWorkoutsAsync()
+		{
+			return await database.Table<Workout>().ToListAsync();
+		}
 
-		//	conn.Insert(new Workout{Pulluprep=pullup});
-		//}
+		public async Task<int> SaveWorkoutAsync(Workout workout)
+		{
+			if(workout.Id != 0)
+			{
+				return await database.UpdateAsync(workout);
+			}
+			return await database.InsertAsync(workout);
+		}
 
-		//Write a method to get all workout records
+		public async Task<int> DeleteWorkoutAsync(Workout workout)
+		{
+			return await database.DeleteAsync(workout);
+		}
+
+		//TODO: Make sure image renders in ListviewItems
 	}
 }

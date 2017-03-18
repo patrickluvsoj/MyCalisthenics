@@ -5,6 +5,9 @@ using System.Linq;
 using Foundation;
 using UIKit;
 
+//Mobile Center Dependecy
+using Microsoft.Azure.Mobile;
+
 namespace MyCalisthenics.iOS
 {
 	[Register("AppDelegate")]
@@ -18,6 +21,7 @@ namespace MyCalisthenics.iOS
 #if ENABLE_TEST_CLOUD
 			Xamarin.Calabash.Start();
 #endif
+			MobileCenter.Configure("17af7add-3d83-4fb4-8c90-c0dfc7c8e1f4");
 
 			string dbpath = LocalFilePathHelper.GetFolderPath();
 

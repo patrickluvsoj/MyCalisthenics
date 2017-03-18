@@ -2,6 +2,13 @@
 using SQLite;
 using Xamarin.Forms.Xaml;
 
+//Mobile Center Depedencies
+using Microsoft.Azure.Mobile;
+using Microsoft.Azure.Mobile.Analytics;
+using Microsoft.Azure.Mobile.Crashes;
+
+using System;
+
 namespace MyCalisthenics
 {
 	[XamlCompilation(XamlCompilationOptions.Compile)]
@@ -12,7 +19,6 @@ namespace MyCalisthenics
 		public App(string dbpath)
 		{
 			InitializeComponent();
-
 			WorkoutDB = new WorkoutDatabase(dbpath);
 
 			MainPage = new NavigationPage(new MyCalisthenicsList());
@@ -20,7 +26,7 @@ namespace MyCalisthenics
 
 		protected override void OnStart()
 		{
-			// Handle when your app starts
+			MobileCenter.Start(typeof(Analytics), typeof(Crashes));
 		}
 
 		protected override void OnSleep()
@@ -32,5 +38,6 @@ namespace MyCalisthenics
 		{
 			// Handle when your app resumes
 		}
+
 	}
 }

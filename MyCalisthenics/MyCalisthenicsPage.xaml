@@ -1,20 +1,22 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
 		xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
 		xmlns:local="clr-namespace:MyCalisthenics;assembly=MyCalisthenics" 
 		x:Class="MyCalisthenics.MyCalisthenicsPage" 
-		Title="New Workout" >
+		Title="New" >
 	
 	<StackLayout VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" Margin="30" Spacing="10">
 
-		<Label Text="Pull-up reps" HorizontalOptions="StartAndExpand" VerticalOptions="Center"/>
+		<Label Text="Workout Date" FontSize="Large"/>
+		<DatePicker Date="{Binding Workoutdate}"/>
+		<Label Text="Pull-up reps" HorizontalOptions="StartAndExpand"/>
 		<Entry Placeholder="ex.) 6" Text="{Binding Pulluprep, Mode=TwoWay}"/>
-		<Label Text="Push-up reps" VerticalOptions="Center" HorizontalOptions="StartAndExpand"/>
+		<Label Text="Push-up reps" HorizontalOptions="StartAndExpand"/>
 		<Entry Placeholder="ex.) 6" Text="{Binding Pushuprep, Mode=TwoWay}"/>
-		<Label Text="Chin-up reps" VerticalOptions="Center" HorizontalOptions="StartAndExpand"/>
+		<Label Text="Chin-up reps" HorizontalOptions="StartAndExpand"/>
 		<Entry Placeholder="ex.) 6" Text="{Binding Chinuprep, Mode=TwoWay}"/>
-		<Label Text="Deadlift" VerticalOptions="Center" HorizontalOptions="StartAndExpand"/>
+		<Label Text="Deadlift" HorizontalOptions="StartAndExpand"/>
 		<Entry Placeholder="ex.) 6" Text="{Binding Deadliftrep, Mode=TwoWay}"/>
 
 		<Button Text="Done" Clicked="OnDoneClicked"/>

@@ -12,6 +12,8 @@ namespace MyCalisthenics
 
 		[PrimaryKey, AutoIncrement]
 		public int Id { get; set; }
+		public string Icon { get; set; }
+		public DateTime Workoutdate { get; set; }
 
 		string pulluprep;
 		public string Pulluprep { 

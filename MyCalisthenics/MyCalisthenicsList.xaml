@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
 		xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
 		xmlns:local="clr-namespace:MyCalisthenics;assembly=MyCalisthenics"
@@ -7,15 +7,44 @@
 		BindingContext="{x:Static local:WorkoutGenerator.workoutCollection}"
 		Padding="5,0,5,5">
 
-<!--TODO Ensure Toolbar is visible	-->
+	 <ContentPage.Resources>
+      <ResourceDictionary>
+        <local:ImageConverter x:Key="imageCvt" />
+		<local:DateFormatConverter x:Key="dateCvrt" />
+      </ResourceDictionary>
+    </ContentPage.Resources>
+
 	<ContentPage.ToolbarItems>
 		<ToolbarItem Text="New" Clicked="OnNewWorkout"/>
 	</ContentPage.ToolbarItems>
 
-	<ListView x:Name="workoutList" ItemsSource="{Binding .}">
+	<ListView RowHeight="80" x:Name="workoutList" ItemsSource="{Binding .}" ItemTapped="OnTapped">
 		<ListView.ItemTemplate>
 			<DataTemplate>
-				<TextCell Text="{Binding Pulluprep}" Detail="{Binding Deadliftrep}"/>
+				<ImageCell ImageSource="{Binding Icon, Converter={StaticResource imageCvt}}" 
+					Text="{Binding Workoutdate, Converter={StaticResource dateCvrt}}" 
+					Detail="{Binding Pulluprep}">
+					<ImageCell.ContextActions>
+						<MenuItem Text="Delete" IsDestructive="true" Clicked="OnDelete"/>
+					</ImageCell.ContextActions>
+				</ImageCell>
+
+
+				
+
+
+			<!-- 	<ViewCell>
+					<Grid>
+						<Grid.ColumnDefinitions/>
+						<Grid.ColumnDefinitions/>
+						<Grid.ColumnDefinitions/>
+						<Grid.ColumnDefinitions/>
+						<Grid.ColumnDefinitions/>
+						<Grid.RowDefinitions/>
+						<Grid.RowDefinitions/>
+					</Grid>
+				</ViewCell> -->
+				
 			</DataTemplate>
 		</ListView.ItemTemplate>
 	</ListView>
