@@ -6,6 +6,7 @@ using Xamarin.Forms.Xaml;
 using Microsoft.Azure.Mobile;
 using Microsoft.Azure.Mobile.Analytics;
 using Microsoft.Azure.Mobile.Crashes;
+
 using System;
 
 namespace MyCalisthenics

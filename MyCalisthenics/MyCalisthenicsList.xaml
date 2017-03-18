@@ -18,7 +18,7 @@
 		<ToolbarItem Text="New" Clicked="OnNewWorkout"/>
 	</ContentPage.ToolbarItems>
 
-	<ListView x:Name="workoutList" ItemsSource="{Binding .}" ItemTapped="OnTapped">
+	<ListView RowHeight="80" x:Name="workoutList" ItemsSource="{Binding .}" ItemTapped="OnTapped">
 		<ListView.ItemTemplate>
 			<DataTemplate>
 				<ImageCell ImageSource="{Binding Icon, Converter={StaticResource imageCvt}}" 
@@ -28,6 +28,23 @@
 						<MenuItem Text="Delete" IsDestructive="true" Clicked="OnDelete"/>
 					</ImageCell.ContextActions>
 				</ImageCell>
+
+
+				
+
+
+			<!-- 	<ViewCell>
+					<Grid>
+						<Grid.ColumnDefinitions/>
+						<Grid.ColumnDefinitions/>
+						<Grid.ColumnDefinitions/>
+						<Grid.ColumnDefinitions/>
+						<Grid.ColumnDefinitions/>
+						<Grid.RowDefinitions/>
+						<Grid.RowDefinitions/>
+					</Grid>
+				</ViewCell> -->
+				
 			</DataTemplate>
 		</ListView.ItemTemplate>
 	</ListView>
