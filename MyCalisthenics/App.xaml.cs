@@ -21,7 +21,10 @@ namespace MyCalisthenics
 			InitializeComponent();
 			WorkoutDB = new WorkoutDatabase(dbpath);
 
-			MainPage = new NavigationPage(new MyCalisthenicsList());
+			var nav = new NavigationPage(new MyCalisthenicsList());
+			nav.BarTextColor = Color.FromHex("#545454");
+
+			MainPage = nav;
 		}
 
 		protected override void OnStart()

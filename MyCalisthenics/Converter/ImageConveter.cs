@@ -7,7 +7,8 @@ namespace MyCalisthenics
 	{
 		public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
 		{
-			return ImageSource.FromResource("MyCalisthenics.Images.workout.png");
+			string imagestring = (string)value;
+			return ImageSource.FromResource("MyCalisthenics.Images." + imagestring);
 		}
 
 		public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)

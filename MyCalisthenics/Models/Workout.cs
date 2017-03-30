@@ -12,7 +12,13 @@ namespace MyCalisthenics
 
 		[PrimaryKey, AutoIncrement]
 		public int Id { get; set; }
-		public string Icon { get; set; }
+
+		string icon;
+		public string Icon { 
+			get { return "workout.png"; }
+			set { icon = value; } 
+		}
+
 		public DateTime Workoutdate { get; set; }
 
 		string pulluprep;
@@ -35,6 +41,7 @@ namespace MyCalisthenics
 		public string Chinuprep { get; set; }
 		public string Pushuprep { get; set; }
 		public string Deadliftrep { get; set; }
+		public int Squat { get; set; }
 
 		void RaisePropertyChanged([CallerMemberName] string propertyName = "")
 		{

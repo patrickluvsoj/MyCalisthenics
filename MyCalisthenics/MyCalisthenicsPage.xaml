@@ -19,6 +19,8 @@
 		<Label Text="Deadlift" HorizontalOptions="StartAndExpand"/>
 		<Entry Placeholder="ex.) 6" Text="{Binding Deadliftrep, Mode=TwoWay}"/>
 
+		<Slider Value="{Binding Squat}" Maximum="3" Minimum="0"/>
+
 		<Button Text="Done" Clicked="OnDoneClicked"/>
 		
 	</StackLayout>
