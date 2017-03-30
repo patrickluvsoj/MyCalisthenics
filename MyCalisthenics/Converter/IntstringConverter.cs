@@ -1,26 +1,19 @@
 ﻿using System;
-using Xamarin.Forms.Xaml;
-using Xamarin.Forms;
 using System.Globalization;
-
-
+using Xamarin.Forms;
 namespace MyCalisthenics
 {
-	public class DateFormatConverter : IValueConverter
+	public class IntstringConverter : IValueConverter
 	{
-		public DateFormatConverter()
-		{
-		}
-
 		public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
 		{
-			var date = (DateTime)value;
-			return date.ToString("ddd, MMM dd");
+			//var stringval = (string)value;
+			return value;
 		}
 
 		public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
 		{
-			return (DateTime)value;
+			throw new NotImplementedException();
 		}
 	}
 }

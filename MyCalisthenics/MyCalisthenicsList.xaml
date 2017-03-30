@@ -1,52 +1,86 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
-		xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
-		xmlns:local="clr-namespace:MyCalisthenics;assembly=MyCalisthenics"
-		Title="Home"
-		x:Class="MyCalisthenics.MyCalisthenicsList"
-		BindingContext="{x:Static local:WorkoutGenerator.workoutCollection}"
-		Padding="5,0,5,5">
+	xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+	xmlns:local="clr-namespace:MyCalisthenics;assembly=MyCalisthenics"
+	Title="History"
+	x:Class="MyCalisthenics.MyCalisthenicsList"
+	BindingContext="{x:Static local:WorkoutGenerator.workoutCollection}"
+	Padding="0,0,0,0">
 
 	 <ContentPage.Resources>
       <ResourceDictionary>
         <local:ImageConverter x:Key="imageCvt" />
 		<local:DateFormatConverter x:Key="dateCvrt" />
-      </ResourceDictionary>
+		<local:IntstringConverter x:Key="intCvrt" />
+		<Color x:Key="GrayTextColor">Gray</Color>
+		<Style x:Key="microGrayLabel" TargetType="Label">
+				<Setter Property="FontSize" Value="Micro"/>
+				<Setter Property="TextColor" Value="{StaticResource GrayTextColor}"/>
+		</Style>
+	</ResourceDictionary>
     </ContentPage.Resources>
 
 	<ContentPage.ToolbarItems>
 		<ToolbarItem Text="New" Clicked="OnNewWorkout"/>
 	</ContentPage.ToolbarItems>
 
-	<ListView RowHeight="80" x:Name="workoutList" ItemsSource="{Binding .}" ItemTapped="OnTapped">
+	<ListView RowHeight="85" x:Name="workoutList" ItemsSource="{Binding .}" ItemTapped="OnTapped" SeparatorVisibility="None">
 		<ListView.ItemTemplate>
 			<DataTemplate>
-				<ImageCell ImageSource="{Binding Icon, Converter={StaticResource imageCvt}}" 
+				
+			<!--	<ImageCell ImageSource="{Binding Icon, Converter={StaticResource imageCvt}}" 
 					Text="{Binding Workoutdate, Converter={StaticResource dateCvrt}}" 
 					Detail="{Binding Pulluprep}">
 					<ImageCell.ContextActions>
 						<MenuItem Text="Delete" IsDestructive="true" Clicked="OnDelete"/>
 					</ImageCell.ContextActions>
-				</ImageCell>
-
-
+				</ImageCell> -->
 				
-
-
-			<!-- 	<ViewCell>
+			<ViewCell>
 					<Grid>
-						<Grid.ColumnDefinitions/>
-						<Grid.ColumnDefinitions/>
-						<Grid.ColumnDefinitions/>
-						<Grid.ColumnDefinitions/>
-						<Grid.ColumnDefinitions/>
-						<Grid.RowDefinitions/>
-						<Grid.RowDefinitions/>
+						<Grid.ColumnDefinitions>
+							<ColumnDefinition Width="3"/>
+							<ColumnDefinition Width="*"/>
+							<ColumnDefinition Width="*"/>
+							<ColumnDefinition Width="*"/>
+							<ColumnDefinition Width="*"/>
+						</Grid.ColumnDefinitions>
+						<Grid.RowDefinitions>
+							<RowDefinition Height="20"/>
+							<RowDefinition Height="2*"/>
+							<RowDefinition Height="4*"/>
+							<RowDefinition Height="2"/>
+						</Grid.RowDefinitions>
+						
+						<Label Text="Squat" Style="{StaticResource microGrayLabel}" Grid.Row="1" Grid.Column="1" 
+						HorizontalOptions="Center" VerticalOptions="Center"/>
+						<Label Text="Muscle-up" FontSize="Micro" TextColor="Gray" Grid.Row="1" Grid.Column="2" 
+						HorizontalOptions="Center" VerticalOptions="Center"/>
+						<Label Text="Abs" FontSize="Micro" TextColor="Gray" Grid.Row="1" Grid.Column="3" 
+						HorizontalOptions="Center" VerticalOptions="Center"/>
+						<Label Text="Planche" FontSize="Micro" TextColor="Gray" Grid.Row="1" Grid.Column="4"
+						HorizontalOptions="Center" VerticalOptions="Center"/>
+
+						<Image Source="check.png" Grid.Row="2" Grid.Column="1" 
+						VerticalOptions="Center" HorizontalOptions="Center"/>
+						<Image Source="check.png" Grid.Row="2" Grid.Column="2" 
+						VerticalOptions="Center" HorizontalOptions="Center"/>
+						<Image Source="check.png" Grid.Row="2" Grid.Column="3" 
+						VerticalOptions="Center" HorizontalOptions="Center"/>
+						<Image Source="check.png" Grid.Row="2" Grid.Column="4" 
+						VerticalOptions="Center" HorizontalOptions="Center"/>
+
+						<ContentView Padding="0,5" BackgroundColor="#3498db" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="5">
+						</ContentView>
+
+						<Label FontSize="Micro" FontAttributes="Bold" TextColor="White" Text="{Binding Workoutdate, Converter={StaticResource dateCvrt}}" 
+							 VerticalOptions="Center" HorizontalOptions="Start" Grid.Row="0" Grid.Column="1"/>
+
+						<Label Grid.Row="0" Grid.Column="3" Text="{Binding Squat, Converter={StaticResource intCvrt}}" FontSize="Micro"/>
+							
 					</Grid>
-				</ViewCell> -->
-				
+				</ViewCell>
 			</DataTemplate>
 		</ListView.ItemTemplate>
 	</ListView>
-	
 </ContentPage>
